@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D522EAFF-7ED7-46F5-98D1-08591A905E5F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClinicalELDAL</RootNamespace>
+    <AssemblyName>ClinicalELDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="EntityLayer\Appointment.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\ClinicAutoDAL.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicAutoDAL.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\ClinicAutoDAL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\ClinicAutoDAL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClinicAutoDAL.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\Doctor.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\Drug.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\Message.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\Order.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\OrderItem.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\Role.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\sysdiagram.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityLayer\User.cs">
+      <DependentUpon>ClinicAutoDAL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AppointmentRepository.cs" />
+    <Compile Include="Repository\ApprovedRepository.cs" />
+    <Compile Include="Repository\DrugRepository.cs" />
+    <Compile Include="Repository\MessageRepository.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\PatientRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="EntityLayer\ClinicAutoDAL.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClinicAutoDAL.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityLayer\ClinicAutoDAL.edmx.diagram">
+      <DependentUpon>ClinicAutoDAL.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityLayer\ClinicAutoDAL.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClinicAutoDAL.edmx</DependentUpon>
+      <LastGenOutput>ClinicAutoDAL.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityLayer\ClinicAutoDAL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClinicAutoDAL.edmx</DependentUpon>
+      <LastGenOutput>ClinicAutoDAL.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

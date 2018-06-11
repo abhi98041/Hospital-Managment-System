@@ -1,0 +1,12 @@
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\ClinicalELDAL.dll.config
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\ClinicalELDAL.dll
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\ClinicalELDAL.pdb
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\EntityFramework.dll
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\EntityFramework.xml
+C:\dot_net_traning\ClinicalELDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\dot_net_traning\ClinicalELDAL\obj\Debug\ClinicalELDAL.csprojAssemblyReference.cache
+C:\dot_net_traning\ClinicalELDAL\obj\Debug\ClinicalELDAL.csproj.CoreCompileInputs.cache
+C:\dot_net_traning\ClinicalELDAL\obj\Debug\ClinicalELDAL.csproj.CopyComplete
+C:\dot_net_traning\ClinicalELDAL\obj\Debug\ClinicalELDAL.dll
+C:\dot_net_traning\ClinicalELDAL\obj\Debug\ClinicalELDAL.pdb
