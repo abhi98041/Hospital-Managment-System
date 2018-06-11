@@ -1,0 +1,21 @@
+﻿
+
+@model System.Collections.Generic.List<ClinicalELDAL.EntityLayer.Order>
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered table-hover">
+        <tr>
+            <th>Doctor name</th>
+            <th>Date</th>            
+        </tr>
+        @foreach (ClinicalELDAL.EntityLayer.Order item in Model)
+        {
+            @Html.Hidden("OrderID", item.OrderID)
+            <tr>
+                <td>@item.User.Name</td>
+                <td>@item.OrderDate</td> 
+                <td>@Html.ActionLink("View Order","ViewOrder",new { oid = item.OrderID },null)</td>
+            </tr>
+
+        }
+    </table>
+</div>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="col-md-12">
+        <div class="">
+            <div class="page-header">
+                <h1 class="text-center">Medicare Hospital</h1>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/anonymous">Medicare</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/anonymous">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (Convert.ToInt32(Session["RoleID"]) == 0)
+                {
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                }
+                else
+                {
+                <li><a href="/login/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                }
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="col-md-3" style="height:500px;padding: 10px;">
+        @if (Convert.ToInt32(Session["RoleID"]) == -1)
+        {
+            <p>Wrong User or Password</p>
+        }
+        @if (Convert.ToInt32(Session["RoleID"]) == 1)
+        {
+            @Html.Partial("_doctor")
+        }
+        @if (Convert.ToInt32(Session["RoleID"]) == 2)
+        {
+            @Html.Partial("_patient")
+        }
+        @if (Convert.ToInt32(Session["RoleID"]) == 3)
+        {
+            @Html.Partial("_vendor")
+        }
+        @if (Convert.ToInt32(Session["RoleID"]) == 4)
+        {
+            @Html.Partial("_admin")
+        }
+        @if (Convert.ToInt32(Session["RoleID"]) == 0)
+        {
+
+        }
+    </div>
+
+    <div class="col-md-9" style="height:500px;padding:10px;">
+        @RenderBody()
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

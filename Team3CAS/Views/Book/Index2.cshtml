@@ -1,0 +1,38 @@
+﻿@model Team3CAS.ViewModels.BookViewModel
+
+@{
+    ViewBag.Title = "Index2";
+}
+<div>
+    <h3>APPOINTMENT FORM</h3>
+</div>
+<div>
+    @using (Html.BeginForm("Index2", "Book", FormMethod.Post))
+    {
+        <table width="50%" align="center">
+            <tr>
+                <th>Appointment Date</th>
+                <td>
+                    @Html.TextBoxFor((x) => x.Date, new { id = "txtAppDate", style = "background-color:lightyellow" })
+                </td>
+                @Html.ValidationMessageFor(x => x.Date)
+            </tr>
+            <tr>
+                <th>Appointment Time</th>
+                <td>@Html.TextBoxFor((x) => x.Time, new { id = "txtAppDate", style = "background-color:lightyellow" })</td>
+                @Html.ValidationMessageFor(x => x.Time)
+            </tr>
+            <tr>
+                <th>Doctor Name</th>
+                <td>@Html.DropDownListFor((x) => x.DoctorUserID, new SelectList(Model.users, "UserID", "Name"), new { @class = "form-control" }) </td>
+                @Html.ValidationMessageFor(x => x.DoctorUserID)
+            </tr>
+            <tr>
+                <td colspan="1" align="center">
+                    <input type="submit" name="btn1" value="Submit" />
+                </td>
+            </tr>
+        </table>
+    }
+
+</div>

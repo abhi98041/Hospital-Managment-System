@@ -1,0 +1,34 @@
+﻿@model Team3CAS.ViewModels.MessageViewModel
+@{
+    ViewBag.Title = "Messageview";
+}
+
+
+<div>
+    <h3>Message</h3>
+</div>
+<div>
+    @{
+        string docid = ViewBag.DoctorID;
+    }
+    @using (Html.BeginForm("Messageview", "Book", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.RecieverID);
+        <table width="50%" align="center">
+            <tr>
+                <th>Message Body</th>
+                <td>
+                    @Html.TextAreaFor((x) => x.Body, new { id = "txtAppDate", style = "background-color:lightyellow" })
+                </td>
+                @Html.ValidationMessageFor(x => x.Body)
+            </tr>
+            <tr>
+                <td colspan="1" align="center">
+                    <input type="submit" name="btn" value="Submit" />
+                </td>
+            </tr>
+        </table>
+
+    }
+</div>
+

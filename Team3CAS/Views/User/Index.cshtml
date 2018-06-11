@@ -1,0 +1,44 @@
+﻿<h2>Index</h2>
+<div class="row">
+    <h2>User list</h2>
+    <br />
+    <div class="col-md-12">
+        <div class="col-lg-8 col-md-offset-2">
+            <div class="col-md-8">
+
+                @using (Html.BeginForm("Index", "User", FormMethod.Post))
+                {
+                    <div class="input-group">
+                        <span class="input-group-addon"> Enter Name</span>
+                        <input type="text" name="txtSearch" calss="form-control" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </span>
+                    </div>
+                }
+            </div>
+            <br />
+            <div class="col-md-12">
+                <table class="table table-condensed table-bordered table-hover">
+                    <tr>
+                        <th>Name</th>
+                        <th>Password</th>
+
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    @foreach (ClinicalELDAL.EntityLayer.User item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Password</td>
+
+                            <td><a href="/user/edituser/@item.UserID">Edit</a></td>
+                            <td><a href="/user/deleteuser/@item.UserID">Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

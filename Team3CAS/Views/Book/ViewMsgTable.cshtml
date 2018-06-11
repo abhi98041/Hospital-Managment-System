@@ -1,0 +1,28 @@
+﻿<div>
+    <h3>Messages</h3>
+</div>
+<div>
+    <div class="col-md-12">
+        <table class="table table-condensed table-bordered table-hover">
+            <tr>
+                <th>From</th>
+                <th>To</th>
+                <th>Date</th>
+                <th>Message</th>
+                <th>Status</th>
+            </tr>
+            @foreach (ClinicalELDAL.EntityLayer.Message item in Model)
+            {
+                <tr>
+                    <td>@item.User.Name</td>
+                    <td>@item.User1.Name</td>
+                    <td>@item.Date</td>
+                    <td>@item.Body</td>
+                    <td>@item.Status</td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
+

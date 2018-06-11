@@ -1,0 +1,38 @@
+﻿
+@model System.Collections.Generic.List<ClinicalELDAL.EntityLayer.Drug>
+<div class="col-md-12">
+    <div class="col-md-12">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <form action="/Anonymous/SearchDrug" method="post">
+                <input type="text" name="txtsearch" />
+                <input type="submit" name="btnsearch" value="Search" />
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+        <table class="table table-condensed table-bordered table-hover" >
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Composition</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th></th>
+            </tr>
+            @foreach (ClinicalELDAL.EntityLayer.Drug item in Model)
+            {
+                @Html.Hidden("DrugID", item.DrugID)
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Composition</td>
+                    <td>@item.Price.ToString()</td>
+                    <td>@item.Quantity.ToString()</td>
+                </tr>
+            }
+        </table>
+
+    </div>

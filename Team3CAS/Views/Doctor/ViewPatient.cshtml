@@ -1,0 +1,24 @@
+﻿
+@model System.Collections.Generic.List<ClinicalELDAL.EntityLayer.Appointment>
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered table-hover">
+        <tr>
+            <th>Patient name</th>
+            <th>Username</th>            
+            <th>Sex</th>
+            <th>Status</th>            
+            <th></th>
+        </tr>
+        @foreach (ClinicalELDAL.EntityLayer.Appointment item in Model)
+        {            
+                @Html.Hidden("UserID", item.User.UserID)
+                <tr>
+                    <td>@item.User.Name</td>
+                    <td>@item.User.MedicareID</td>
+                    <td>@item.User.Sex.ToString()</td>
+                    <td>@item.Status</td>                    
+                </tr>
+            
+        }
+    </table>
+</div>

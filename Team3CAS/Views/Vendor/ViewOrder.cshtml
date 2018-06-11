@@ -1,0 +1,29 @@
+﻿
+
+
+@model System.Collections.Generic.List<ClinicalELDAL.EntityLayer.OrderItem>
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered table-hover">
+        <tr>
+            <th>Drug name</th>
+            <th>Quantity</th>
+
+        </tr>
+        @{
+            int oid = 0;
+        }
+        @foreach (ClinicalELDAL.EntityLayer.OrderItem item in Model)
+        {
+            oid = item.OrderID;
+            @Html.Hidden("OrderID", item.OrderID)
+            <tr>
+                <td>@item.Drug.Name</td>
+                <td>@item.Quantity</td>
+
+            </tr>
+
+        }
+        <tr>
+    </table>
+    @Html.ActionLink("Approve Order", "ApproveOrder", new { oid = oid }, null)</tr>
+</div>

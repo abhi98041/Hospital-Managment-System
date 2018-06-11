@@ -1,0 +1,29 @@
+﻿@model System.Collections.Generic.List<Team3CAS.ViewModels.CartViewModel>
+
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered table-hover">
+        <tr>
+            <th>Name</th>
+
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Cost</th>
+            <th></th>
+        </tr>
+        @foreach (Team3CAS.ViewModels.CartViewModel item in Model)
+        {
+
+            var repo = new Team3CAS.ViewModels.CartViewModel();
+            @Html.Hidden("DrugID", item.DrugID)
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+                <td>@item.TotalCost</td>
+            </tr>
+
+        }
+    </table>
+</div>

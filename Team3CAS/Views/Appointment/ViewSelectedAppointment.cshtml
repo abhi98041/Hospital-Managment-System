@@ -1,0 +1,36 @@
+﻿@model System.Collections.Generic.List<ClinicalELDAL.EntityLayer.Appointment>
+@{
+    var repo = new ClinicalELDAL.Repository.AppointmentRepository();
+}
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered table-hover">
+        <tr>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        @{
+            int appid = 0;
+        }
+        @foreach (ClinicalELDAL.EntityLayer.Appointment item in Model)
+        {
+            var docname = repo.GetDoctorNameById(item.DoctorUserID);
+            appid = item.AppointmentID;
+            @Html.Hidden("AppointmentID", item.AppointmentID)
+            <tr>
+                <td>@item.User.Name</td>
+                <td>@docname</td>
+                <td>@item.Date.ToShortDateString()</td>
+                <td>@item.Time.ToString()</td>
+
+            </tr>
+        }
+        @foreach (ClinicalELDAL.EntityLayer.Appointment item in Model)
+        {
+            <tr></tr>
+        }
+    </table>
+    @Html.ActionLink("Approve", "ViewApprovedAppointment", new { appid = appid }, null)
+    @Html.ActionLink("Deny", "GetDeniedAppointments", new { appid = appid }, null)
+</div>

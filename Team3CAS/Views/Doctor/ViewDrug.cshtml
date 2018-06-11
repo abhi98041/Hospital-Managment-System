@@ -1,0 +1,30 @@
+﻿@model System.Collections.Generic.List<ClinicalELDAL.EntityLayer.Drug>
+<div class="col-md-12">
+    <table class="table table-condensed table-bordered table-hover">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Composition</th>
+            <th>Price</th>
+            <th>Quantity Left</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+        @foreach (ClinicalELDAL.EntityLayer.Drug item in Model)
+        {
+        <form action="/Doctor/AddToCart" method="post">
+            @Html.Hidden("DrugID", item.DrugID)
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Composition</td>
+                <td>@item.Price.ToString()</td>
+                <td>@item.Quantity.ToString()</td>
+                <td>@Html.TextBox("quantity","",new { type="number", min="0"})</td>
+                <td><input type="submit" value="Add To Cart" class="btn-warning"/></td>
+            </tr>
+        </form>
+        }
+    </table>
+    @Html.ActionLink("View Cart", "ViewCart")
+</div>

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Logged in As
+
+    @{
+        int roleid = (int)Session["RoleID"];
+        int userid = (int)Session["UserID"];
+
+
+    }
+    @roleid
+
+    Welcome to Medicare Services
+    </br>
+    <a href="/User/EditUser/@userid">Edit Profile</a>
+    </br>
+</h2>

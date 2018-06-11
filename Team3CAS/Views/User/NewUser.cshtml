@@ -1,0 +1,64 @@
+﻿@model Team3CAS.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "NewUser";
+}
+<h2>NewUser</h2>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
+            @using (Html.BeginForm("NewUser", "User", FormMethod.Post))
+    {
+
+        <div class="form-group">
+            <label class="control-label">MedicareID</label>
+            @Html.TextBoxFor(x => x.MedicareId, new { htmlAttributes = new { @class = "form-control" } })
+            <div>
+                @Html.ValidationMessageFor(x => x.MedicareId)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Password</label>
+            @Html.PasswordFor(x => x.Password, new { @class = "form-control", maxlength = "15" })
+            <div>
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Name</label>
+            @Html.TextAreaFor(x => x.Name, new { @class = "form-control", rows = "5", cols = "30" })
+            <div>
+                @Html.ValidationMessageFor(x => x.Name)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Role</label>
+            @Html.DropDownListFor(x => x.RoleID, new SelectList(Model.Roles, "RoleID", "Name"),
+         new { @class = "form-control" })
+            <div>
+                @Html.ValidationMessageFor(x => x.Roles)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Sex</label>
+            @Html.TextBoxFor(x => x.Sex, new { @class = "form-control", maxlength = "50" })
+            <div>
+                @Html.ValidationMessageFor(x => x.Sex)
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Status</label>
+            @Html.TextBoxFor(x => x.Status, new { @class = "form-control", maxlength = "50" })
+            <div>
+                @Html.ValidationMessageFor(x => x.Status)
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" name="btn1" class="btn btn-primary" value="Add User" />
+            <input type="reset" name="btn2" class="btn btn-warning" value="Reset form" />
+        </div>
+
+}
+        </div>
+   </div>
+</div>
